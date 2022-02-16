@@ -55,9 +55,24 @@ function twoSum1(nums, target) {
     return [];
 }
 
-// nums = [3, 1, 2, 4], target = 7;
-// const result = twoSum1(nums, target);
-// console.log(result);
+function twoSumWithMap(nums, target) {
+    let seen = new Map();
+    for (i = 0; i < nums.length; i++) {
+        let value = nums[i];
+        remaining = target - value;
+
+        if (seen.has(remaining)) {
+            return [seen.get(remaining), i];
+        }
+
+        seen.set(value, i);
+    }
+    return [-1, -1];
+}
+
+nums = [3, 1, 2, 4], target = 7;
+const result = twoSumWithMap(nums, target);
+console.log(result);
 
 var getConcatenation = function (nums) {
     let n = nums.length;
@@ -69,8 +84,8 @@ var getConcatenation = function (nums) {
     return ans;
 };
 
-let nums = [1, 2, 1]
-// Output: [1,2,1,1,2,1]
+// let nums = [1, 2, 1]
+// // Output: [1,2,1,1,2,1]
 
-const result = getConcatenation(nums);
-console.log(result);
+// const result = getConcatenation(nums);
+// console.log(result);
