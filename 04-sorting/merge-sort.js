@@ -45,4 +45,19 @@ mergeSort(nums, 0, nums.length - 1);
 
 console.log(nums);
 
-//mikeCheck();
+const nums1 = [4, 1, 5, 3, 7, 2, 0, 6];
+const quickSort = nums => {
+    if (nums.length < 2) return nums;
+    const left = 0;
+    const right = nums.length - 1;
+    const pivot = nums[Math.floor((left + right) / 2)];
+    const minNums = nums.filter((value, index) => value < pivot);
+    const maxNums = nums.filter((value, index) => value > pivot);
+
+    return [...quickSort(minNums), pivot, ...quickSort(maxNums)];
+
+}
+
+const result = quickSort(nums1)
+console.log('Quick Sort');
+console.log(result);
