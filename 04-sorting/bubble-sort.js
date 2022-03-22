@@ -2,29 +2,32 @@
 // O(n^2)
 const bubbleSort = nums => {
     let swapped = false;
-    let n = nums.length - 1;
+    let n = nums.length;
     do {
-        let noSwap = true;
+        //let isSwapped = false;
         for (let i = 0; i < n; i++) {
-            let j = i + 1;
-            if (nums[i] > nums[j]) {
-                [nums[i], nums[j]] = [nums[j], nums[i]];
-                noSwap = false;
+            if (nums[i + 1] !== undefined && (nums[i] > nums[i + 1])) {
+                [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+                //  isSwapped = true;
             }
-            console.log(nums, nums[i], nums[j]);
+            // else {
+            //     isSwapped = false;
+            // }
         }
-        console.log(`One pass completed`);
-        n -= 1;
-        if (n <= -1 || !noSwap) {
+        n = n - 1;
+        //if (n < 0 || !isSwapped) {
+        if (n < 0) {
             swapped = true;
         }
-    }
-    while (!swapped)
+    } while (!swapped);
+
 }
 
-//const nums = [5, 1, 31, 3, 20, 36, 13, 11, 85, 10, 6, 7];
+const nums = [5, 1, 31, 3, 20, 36, 13, 11, 85, 10, 6, 7];
 //const nums = [5, 1, 31, -14, 3, 20];
-const nums = [1, -14, 3, 5, 20, 31];
+//const nums = [1, 3, 2, 0, 1];
+
 
 bubbleSort(nums)
-//console.log(nums);
+console.log('The final output');
+console.log(nums);
